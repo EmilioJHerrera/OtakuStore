@@ -1,24 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import Hero from './screens/Hero';
+import Itemcard from './components/Itemcard';
+import RenderList from './components/RenderList';
+import ItemDetails from './components/ItemDetails';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import RenderMainList from './components/RenderMainList';
+
+import {
+  BrowserRouter as Router,
+  Link,
+  Routes,
+  Route
+} from "react-router-dom";
+
+
+
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Hero/>
+     <RenderMainList/>
+      
+
+   
+     <RenderList/>
+     
+     <Link to="/itemDetails">Items details</Link>
+
+
+
+
+    <Routes>
+      <Route path="/itemDetails" element={<ItemDetails/>}>
+      
+      </Route>
+    </Routes>
+
     </div>
+    </Router>
   );
 }
 
